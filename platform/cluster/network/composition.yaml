@@ -13,7 +13,7 @@ spec:
     kind: XNetwork
   resources:
   - base:
-      apiVersion: azure.crossplane.io/v1alpha3
+      apiVersion: azure.upbound.io/v1beta1
       kind: ResourceGroup
       spec:
         location: West US 3
@@ -33,7 +33,7 @@ spec:
       - fromFieldPath: spec.id
         toFieldPath: metadata.labels[azure.platformref.crossplane.io/app]
   - base:
-      apiVersion: network.azure.crossplane.io/v1alpha3
+      apiVersion: network.azure.upbound.io/v1beta1
       kind: VirtualNetwork
       spec:
         resourceGroupNameSelector:
@@ -58,7 +58,7 @@ spec:
             string:
               fmt: "%s-vnet"
   - base:
-      apiVersion: network.azure.crossplane.io/v1alpha3
+      apiVersion: network.azure.upbound.io/v1beta1
       kind: Subnet
       spec:
         resourceGroupNameSelector:
