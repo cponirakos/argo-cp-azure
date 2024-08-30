@@ -71,10 +71,10 @@ spec:
             matchControllerRef: true
           virtualNetworkNameSelector:
             matchControllerRef: true
-            addressPrefix:
-              - 192.168.1.0/24
-            serviceEndpoints:
-              - Microsoft.Sql
+          addressPrefix:
+            - 192.168.1.0/24
+          serviceEndpoints:
+            - Microsoft.Sql
     patches:
       - fromFieldPath: spec.id
         toFieldPath: metadata.labels[azure.platformref.crossplane.io/app]
