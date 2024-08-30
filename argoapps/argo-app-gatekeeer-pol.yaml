@@ -13,7 +13,7 @@ spec:
       jsonnet: {}
       recurse: true
     path: policy
-    repoURL: https://github.com/natereid72/gitops.git
+    repoURL: https://github.com/cponirakos/argo-cp-azure.git
     targetRevision: HEAD
   syncPolicy:
     syncOptions:
