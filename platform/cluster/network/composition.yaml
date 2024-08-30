@@ -16,7 +16,8 @@ spec:
       apiVersion: azure.upbound.io/v1beta1
       kind: ResourceGroup
       spec:
-        location: West US 3
+        forProvider:
+          location: West US 3
     patches:
       - fromFieldPath: spec.id
         toFieldPath: metadata.name
