@@ -17,7 +17,7 @@ spec:
       kind: ResourceGroup
       spec:
         forProvider:
-          location: westus2
+          location: westus3
         providerConfigRef:
           name: default
     patches:
@@ -39,10 +39,10 @@ spec:
       apiVersion: network.azure.upbound.io/v1beta1
       kind: VirtualNetwork
       spec:
-        resourceGroupNameSelector:
-          matchControllerRef: true
         forProvider:
-          location: westus2
+          resourceGroupNameSelector:
+            matchControllerRef: true
+          location: westus3
           addressSpace:
             - 192.168.0.0/16
         providerConfigRef:
