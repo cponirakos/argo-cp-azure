@@ -43,7 +43,7 @@ spec:
         - fromFieldPath: spec.id
           toFieldPath: spec.forProvider.dnsNamePrefix
         - fromFieldPath: spec.parameters.nodes.size
-          toFieldPath: spec.forProvider.defaultNodePool.vmSize
+          toFieldPath: spec.forProvider.defaultNodePool[0].vmSize
           transforms:
           - type: map
             map:
