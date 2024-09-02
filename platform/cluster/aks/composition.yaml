@@ -62,28 +62,28 @@ spec:
                 fmt: "%s-aks"
       connectionDetails:
         - fromConnectionSecretKey: kubeconfig
-    # - base:
-    #     apiVersion: helm.crossplane.io/v1beta1
-    #     kind: ProviderConfig
-    #     spec:
-    #       credentials:
-    #         source: Secret
-    #         secretRef:
-    #           key: kubeconfig
-    #   patches:
-    #     - fromFieldPath: metadata.labels
-    #       toFieldPath: metadata.labels
-    #     - fromFieldPath: spec.id
-    #       toFieldPath: metadata.name
-    #     - fromFieldPath: spec.writeConnectionSecretToRef.namespace
-    #       toFieldPath: spec.credentials.secretRef.namespace
-    #     # This ProviderConfig uses the above AKS cluster's connection secret as
-    #     # its credentials secret.
-    #     - fromFieldPath: spec.writeConnectionSecretToRef.name
-    #       toFieldPath: spec.credentials.secretRef.name
-    #       transforms:
-    #         - type: string
-    #           string:
-    #             fmt: "%s-aks"
+    - base:
+        apiVersion: helm.crossplane.io/v1beta1
+        kind: ProviderConfig
+        spec:
+          credentials:
+            source: Secret
+            secretRef:
+              key: kubeconfig
+      patches:
+        - fromFieldPath: metadata.labels
+          toFieldPath: metadata.labels
+        - fromFieldPath: spec.id
+          toFieldPath: metadata.name
+        - fromFieldPath: spec.writeConnectionSecretToRef.namespace
+          toFieldPath: spec.credentials.secretRef.namespace
+        # This ProviderConfig uses the above AKS cluster's connection secret as
+        # its credentials secret.
+        - fromFieldPath: spec.writeConnectionSecretToRef.name
+          toFieldPath: spec.credentials.secretRef.name
+          transforms:
+            - type: string
+              string:
+                fmt: "%s-aks"
       readinessChecks:
         - type: None
