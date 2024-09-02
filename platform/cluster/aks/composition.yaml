@@ -43,13 +43,13 @@ spec:
         - fromFieldPath: spec.id
           toFieldPath: spec.forProvider.dnsNamePrefix
         - fromFieldPath: spec.parameters.nodes.size
-          toFieldPath: spec.forProvider.defaultNodePool.["vmSize"]
+          toFieldPath: spec.forProvider.defaultNodePool.vmSize
           transforms:
-            - type: map
-              map:
-                small: Standard_B2ats_v2
-                medium: Standard_B2als_v2
-                large: Standard_B2as_v2
+          - type: map
+            map:
+              small: Standard_B2ats_v2
+              medium: Standard_B2als_v2
+              large: Standard_B2as_v2
         - fromFieldPath: "spec.parameters.nodes.count"
           toFieldPath: "spec.forProvider.nodeCount"
         - fromFieldPath: spec.writeConnectionSecretToRef.namespace
